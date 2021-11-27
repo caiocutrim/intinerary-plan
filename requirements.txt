@@ -1,0 +1,3 @@
+Pull in from a booking api available hotel rooms 
+Parse and store data in a database periodicly
+Create a trip intineary with available hotel rooms with relevante dates

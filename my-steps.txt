@@ -1,0 +1,7 @@
+I picked up impala-hotels-api to provide data for this application
+I got an x-api-key to send in header request to ensure authentication
+I schedule request to parse and save in a sequel api
+I will use docker to manager services (api-server and database-server), by using docker-compose for it
+I will make tests to ensure that responses and data are correct
+I will make tests to ensure the services is running, which are (database and api)
+I will add a health-check route to ensure the services are running
