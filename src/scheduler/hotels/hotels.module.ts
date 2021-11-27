@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { Hotel } from './hotel';
 
-@Module({})
+@Module({
+  providers: [Hotel],
+})
 export class HotelsModule {}
