@@ -1,5 +1,5 @@
 ## Description
-A simple service that pulls in from hotel's third api and list hotels with available rooms by relevant date
+A simple service that pulls in from hotel's third part api and list hotels with available rooms by relevant date
 
 ## Some details before start the service
 The postman (a really simple documentation) collection is in the project's root and named to Intinerary-planner.postman_collection.json you have to import it to the app  to make a request to list hotels by start and end date or not passing any params.
