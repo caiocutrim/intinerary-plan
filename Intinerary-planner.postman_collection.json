@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "66ad76a1-b73d-425f-bca0-f218ab663df0",
+		"name": "Intinerary-planner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/hotel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/hotel?start=2021-11-28T21:58:07.311Z&end=2021-12-13T21:58:07.311Z",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"hotel"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2021-11-28T21:58:07.311Z"
+						},
+						{
+							"key": "end",
+							"value": "2021-12-13T21:58:07.311Z"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

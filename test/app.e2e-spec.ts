@@ -1,24 +1,37 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { INestApplication } from '@nestjs/common';
+import { getModelToken } from '@nestjs/mongoose';
 import * as request from 'supertest';
-import { AppModule } from './../src/app.module';
+import { AppModule } from '../src/app.module';
+import { INestApplication } from '@nestjs/common';
+import { HotelService } from '../src/hotel/hotel-service/hotel.service';
+import { Hotel } from '../src/models/hotel.schema';
+import { mockList } from './mock-list';
 
-describe('AppController (e2e)', () => {
+describe('Itinerary planner', () => {
   let app: INestApplication;
 
-  beforeEach(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
+  beforeAll(async () => {
+    const mockAppModule: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
+      providers: [
+        HotelService,
+        {
+          provide: getModelToken(Hotel.name),
+          useFactory: () => ({
+            find: () => mockList,
+          }),
+        },
+      ],
     }).compile();
 
-    app = moduleFixture.createNestApplication();
+    app = mockAppModule.createNestApplication();
     await app.init();
   });
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
+  it('GET list of hotels', async () => {
+    const response = await request(app.getHttpServer())
+      .get('/hotel?start=2021-11-19&end=2021-11-23')
+      .expect(200);
+    expect(response.body).toBeInstanceOf(Array);
   });
 });
